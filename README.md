@@ -57,7 +57,7 @@ This project provides a pipeline to extract, process, and analyze earnings call 
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone <https://github.com/rtj1/stock_earnings>
 cd earnings_insight
 ```
 
