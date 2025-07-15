@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: earnings-insight-api
+    ports:
+      - "8000:8000"
+    environment:
+      # Docker Compose will now automatically read these from your .env file
+      - OPENAI_API_KEY
+      - TARGET_TICKER
+      - MAX_WORKERS
+    volumes:
+      - earnings_data:/app/data
+    restart: "on-failure"
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    container_name: earnings-insight-streamlit
+    ports:
+      - "8501:8501"
+    environment:
+      FASTAPI_URL: "http://api:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - api
+    restart: "on-failure"
+
+volumes:
+  earnings_data:
+    driver: local

@@ -1,0 +1,23 @@
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim-bullseye
+
+# Set the working directory in the container
+WORKDIR /app/dashboard
+
+# Copy the requirements file into the container at /app/dashboard
+# Assuming your Streamlit app might have specific requirements or shares the main one
+COPY requirements.txt /app/
+
+# Install any needed packages specified in requirements.txt
+# Ensure Streamlit is installed from requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+# Copy the Streamlit application code into the container
+COPY dashboard/ .
+
+# Expose the port that Streamlit will run on
+EXPOSE 8501
+
+# Command to run the Streamlit application
+# We'll run it directly, not through an entrypoint script
+CMD ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]

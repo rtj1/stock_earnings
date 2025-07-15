@@ -1,0 +1,62 @@
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+lib/
+*.egg-info/
+
+# Pipenv
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS & OS files
+.DS_Store
+Thumbs.db
+
+# Environment configuration
+.env
+.env.*
+
+# Docker
+*.log
+*.tmp
+*.pid
+docker-compose.override.yml
+
+# Data directories (ignored for size & sensitivity)
+data/
+!data/.gitkeep
+data/raw/
+data/raw_aapl/
+data/processed/
+data/earnings_insights.db
+*.parquet
+*.arrow
+*.jsonl
+*.json
+
+# Output artifacts
+outputs/
+*.zip
+*.tar.gz
+
+# Log files
+*.log
+
+# Streamlit
+.streamlit/
+
+# VS Code remote settings
+.vscode-server/

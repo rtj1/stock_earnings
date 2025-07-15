@@ -1,0 +1,16 @@
+.git
+.gitignore
+.env
+venv/
+data/
+api.log
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
